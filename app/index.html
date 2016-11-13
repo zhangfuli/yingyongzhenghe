@@ -18,52 +18,100 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">yingyongzhenghe</h3>
-      </div>
 
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
+    <div class="myContainer">
+        <div class="myHead">
+          <img src="../images/upclogo.png" alt="upclogo" width="240px">
+          <img src="../images/ybfzzx.png" alt="易班发展中心" width="250px" class="ybfzzx">
+          <button class="btn myBtn-head dengLu">登陆</button>
+          <button class="btn myBtn-head shuZiShiDa">数字石大</button>
+        </div>
+      <div class="tags">
+        <div class="tag study">
+          <div class="finger">
+            <div class="circle"></div>
+          </div>
+          <button class="btn myBtn-tag study-btn my-active">易学习</button>
+        </div>
+        <div class="tag life">
+          <div class="finger">
+            <div class="circle"></div>
+          </div>
+          <button class="btn myBtn-tag life-btn">易生活</button>
+        </div>
+        <div class="tag activity">
+          <div class="finger">
+            <div class="circle"></div>
+          </div>
+          <button class="btn myBtn-tag activity-btn">易活动</button>
+        </div>
+        <div class="tag help">
+          <div class="finger">
+            <div class="circle"></div>
+          </div>
+          <button class="btn myBtn-tag help-btn">易帮助</button>
+        </div>
+        <div class="tag community">
+          <div class="finger">
+            <div class="circle"></div>
+          </div>
+          <button class="btn myBtn-tag community-btn">易社区</button>
         </div>
       </div>
+      <div class="content">
+          <div class="apply">
+              <p class="apply-p">生活查询</p>
+              <div class="apply-div">
+                <img src="./images/logo_0.png" alt="logo" class="img">
+              </div>
+          </div>
+        <div class="apply">
+          <p class="apply-p">生活查询</p>
+          <div class="apply-div">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="apply">
+          <p class="apply-p">生活查询</p>
+          <div class="apply-div">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="apply">
+          <p class="apply-p">生活查询</p>
+          <div class="apply-div">
 
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
+          </div>
+        </div>
+        <div class="apply">
+          <p class="apply-p">生活查询</p>
+          <div class="apply-div">
+            <img src="" alt="">
+          </div>
+        </div>
       </div>
+      <div class="my-footer">
+        <img src="./images/address.png" alt="address" class="address">
+        <img src="./images/logo.png" alt="yblogo" class="ybLogo">
+      </div>
+
+
     </div>
-    
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+//      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+//      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+//      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+//      e.src='https://www.google-analytics.com/analytics.js';
+//      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+//      ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
     <!-- build:js scripts/vendor.js -->
@@ -71,7 +119,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap/js/affix.js"></script>
     <script src="/bower_components/bootstrap/js/alert.js"></script>
@@ -85,8 +133,10 @@
     <script src="/bower_components/bootstrap/js/scrollspy.js"></script>
     <script src="/bower_components/bootstrap/js/collapse.js"></script>
     <script src="/bower_components/bootstrap/js/tab.js"></script>
+    <script src="/bower_components/vue/dist/vue.js"></script>
+
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
