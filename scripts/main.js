@@ -6,7 +6,7 @@ Vue.http.interceptors.push((request, next) => {
 var vm = new Vue({
 	el:"#vue",
 	data:{
-		url:"http://localhost:8086/homepage/",
+		url:"http://yb.upc.edu.cn:8087/homepage/",
 		left_lists:{},
 		centers:{},
 		centerlength:'',
@@ -14,20 +14,20 @@ var vm = new Vue({
 	},
 	methods:{
 		//获得左侧tab
-		// get_left:function(){
-		// 	this.$http.get(this.url+"tab/showall").then(function(response){
-		// 		this.left_lists=response.data;
-		// 	})
-		// },
+		get_left:function(){
+			this.$http.get(this.url+"tab/showall").then(function(response){
+				this.left_lists=response.data;
+			})
+		},
 		//获得锚链接  name、icon
-		study:function(){
-			$(".life-btn").removeClass("my-active");
-			$(".study-btn").addClass("my-active");
-			$(".help-btn").removeClass("my-active");
-			$(".activity-btn").removeClass("my-active");
-			$(".community-btn").removeClass("my-active");
+		right_tab:function(index){
+			for(var i = 0 ;i <this.left_lists.length;i++){
+				$('.tabBtn_'+i).removeClass("my-active");
+			}
+			$('.tabBtn_'+index).addClass("my-active");
 			$(".apply").fadeIn("slow");
-			this.$http.get(this.url+"app/showbytab?tabid=1").then(function(response){
+			index = index+1;
+			this.$http.get(this.url+"app/showbytab?tabid="+index).then(function(response){
 					this.centers =  response.data;
 					this.centerlength = response.data.length;			
 			});
@@ -36,64 +36,9 @@ var vm = new Vue({
 			},300);
 			
 		},
-		life:function(){
-			$(".study-btn").removeClass("my-active");
-			$(".life-btn").addClass("my-active");
-			$(".help-btn").removeClass("my-active");
-			$(".activity-btn").removeClass("my-active");
-			$(".community-btn").removeClass("my-active");
-			this.$http.get(this.url+"app/showbytab?tabid=2").then(function(response){
-					this.centers =  response.data;
-					this.centerlength = response.data.length;		
-			});
-			setTimeout(function(){
-				$('.apply').fadeIn('slow');
-			},300);
-		},
-		activity:function(){
-			$(".study-btn").removeClass("my-active");
-			$(".activity-btn").addClass("my-active");
-			$(".help-btn").removeClass("my-active");
-			$(".life-btn").removeClass("my-active");
-			$(".community-btn").removeClass("my-active");
-			this.$http.get(this.url+"app/showbytab?tabid=3").then(function(response){
-					this.centers =  response.data;
-					this.centerlength = response.data.length;		
-			});
-			setTimeout(function(){
-				$('.apply').fadeIn('slow');
-			},300);
-		},
-		help:function(){
-			$(".study-btn").removeClass("my-active");
-			$(".activity-btn").removeClass("my-active");
-			$(".help-btn").addClass("my-active");
-			$(".life-btn").removeClass("my-active");
-			$(".community-btn").removeClass("my-active");
-			this.$http.get(this.url+"app/showbytab?tabid=4").then(function(response){
-					this.centers =  response.data;
-					this.centerlength = response.data.length;			
-			});
-			setTimeout(function(){
-				$('.apply').fadeIn('slow');
-			},300);
-		},
-		community:function(){
-			$(".study-btn").removeClass("my-active");
-			$(".activity-btn").removeClass("my-active");
-			$(".help-btn").removeClass("my-active");
-			$(".life-btn").removeClass("my-active");
-			$(".community-btn").addClass("my-active");
-			this.$http.get(this.url+"app/showbytab?tabid=5").then(function(response){
-					this.centers =  response.data;
-					this.centerlength = response.data.length;		
-			});
-
-		},
 		//点击链接
 		app_href:function(index){
-			console.log(this.centers[index+1].href);
-			window.open(this.centers[index+1].href);
+			window.open(this.centers[index].href);
 		},
 		//用于删除右侧
 		delete_app:function(index){
@@ -109,7 +54,12 @@ var vm = new Vue({
 		}
 	},
 });
-vm.study();
+vm.get_left();
+var p = "0" ;
+setTimeout(function(){
+vm.right_tab(p);
+},300);
+
 function submit_form(){
 	$.ajax({
             url: vm.url+'app/create',

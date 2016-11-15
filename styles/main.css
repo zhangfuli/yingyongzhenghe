@@ -198,61 +198,35 @@ body {
   margin-top: 10px;
   margin-left: 60%;
 }
-.study{
+.tab_0 , .tab_5{
   background: #96e0d3;
 }
-.study-btn{
+.tabBtn_0,.tabBtn_5{
   background: #7abdad;
-  position: relative;
-  top: -79px;
-  font-size: 25px;
-  font-family: "Microsoft YaHei UI";
-  color: #fff;
 }
-.life{
+.tab_1,.tab_6{
   background: #fbc98c;
 }
-.life-btn{
+.tabBtn_1,.tabBtn_6{
   background: #ffdc69;
-  position: relative;
-  top: -79px;
-  font-size: 25px;
-  font-family: "Microsoft YaHei UI";
-  color: #fff;
 }
-.activity{
+.tab_2,.tab_7{
   background-color: #75c9d2;
-
 }
-.activity-btn{
+.tabBtn_2,.tabBtn_7{
   background: #63adff;
-  position: relative;
-  top: -79px;
-  font-size: 25px;
-  font-family: "Microsoft YaHei UI";
-  color: #fff;
 }
-.help{
+.tab_3,.tab_8{
   background: #95d7b1;
 }
-.help-btn{
+.tabBtn_3,.tabBtn_8{
   background: #adce7b;
-  position: relative;
-  top: -79px;
-  font-size: 25px;
-  font-family: "Microsoft YaHei UI";
-  color: #fff;
 }
-.community{
+.tab_4,.tab_9{
   background: #ff9393;
 }
-.community-btn{
+.tabBtn_4,.tabBtn_9{
   background: #ff747a;
-  position: relative;
-  top: -79px;
-  font-size: 25px;
-  font-family: "Microsoft YaHei UI";
-  color: #fff;
 }
 
 .myBtn-tag{
@@ -260,6 +234,11 @@ body {
   width: 80%;
   margin-left: 20%;
   border-radius: 50px;
+  position: relative;
+  top: -79px;
+  font-size: 25px;
+  font-family: "Microsoft YaHei UI";
+  color: #fff;
 }
 .my-active{
   width: 100%;
