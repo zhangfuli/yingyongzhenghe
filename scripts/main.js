@@ -3,14 +3,27 @@ Vue.http.interceptors.push((request, next) => {
     request.credentials = true
     next()
 });
+
 var vm = new Vue({
 	el:"#vue",
 	data:{
-		url:"http://yb.upc.edu.cn:8087/homepage/",
+		url:"http://localhost:8086/homepage/",
 		left_lists:{},
 		centers:{},
 		centerlength:'',
 		selected:''
+	},
+	ready:function(){
+		//易班验证
+		var APPID = "192494f4fb128dd1";   //a2fdb91816803444
+		var CALLBACK = "http://f.yiban.cn/iapp80911"; // "http://f.yiban.cn/iapp55163";
+		if (location.search['verify_request']) {
+		      //alert($location.search()['verify_request']);
+		    Vue.$http.get('http://localhost:9000/homepage/auth/?vq=' + location.search['verify_request']);
+		}
+		else {
+		    window.location = 'https://openapi.yiban.cn/oauth/authorize?client_id=' + APPID + '&redirect_uri=' + CALLBACK + '&display=html';
+		}
 	},
 	methods:{
 		//获得左侧tab
@@ -40,6 +53,18 @@ var vm = new Vue({
 		app_href:function(index){
 			window.open(this.centers[index].href);
 		},
+		//用于删除左侧tab
+		delete_tab:function(index){
+			var tab_id = this.left_lists[index].id;
+			this.$http.get(this.url+"tab/delete?id="+tab_id).then(function(response){
+				if(response.data.code==0){
+					this.left_lists.splice(index,1);
+					alert("删除成功");
+				}else{
+					alert("未知错误")
+				}
+			})
+		},
 		//用于删除右侧
 		delete_app:function(index){
 			var app_id = this.centers[index].id;
@@ -55,9 +80,8 @@ var vm = new Vue({
 	},
 });
 vm.get_left();
-var p = "0" ;
 setTimeout(function(){
-vm.right_tab(p);
+	vm.right_tab(0);
 },300);
 
 function submit_form(){
