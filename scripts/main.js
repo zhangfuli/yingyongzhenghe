@@ -3,27 +3,23 @@ Vue.http.interceptors.push((request, next) => {
     request.credentials = true
     next()
 });
-
+//易班验证
+		var APPID = "192494f4fb128dd1";  
+		var CALLBACK = "http://f.yiban.cn/iapp80911"; //"http://f.yiban.cn/iapp55163";
+		if (location.search['verify_request']) {
+		    Vue.$http.get('http://localhost:9000/homepage/auth/?vq='+location.search['verify_request']);
+		}
+		else {
+		    window.location = 'https://openapi.yiban.cn/oauth/authorize?client_id=' + APPID + '&redirect_uri=' + CALLBACK + '&display=html';	
+		}
 var vm = new Vue({
 	el:"#vue",
 	data:{
-		url:"http://localhost:8086/homepage/",
+		url:"http://localhost:9000/homepage/",
 		left_lists:{},
 		centers:{},
 		centerlength:'',
 		selected:''
-	},
-	ready:function(){
-		//易班验证
-		var APPID = "192494f4fb128dd1";   //a2fdb91816803444
-		var CALLBACK = "http://f.yiban.cn/iapp80911"; // "http://f.yiban.cn/iapp55163";
-		if (location.search['verify_request']) {
-		      //alert($location.search()['verify_request']);
-		    Vue.$http.get('http://localhost:9000/homepage/auth/?vq=' + location.search['verify_request']);
-		}
-		else {
-		    window.location = 'https://openapi.yiban.cn/oauth/authorize?client_id=' + APPID + '&redirect_uri=' + CALLBACK + '&display=html';
-		}
 	},
 	methods:{
 		//获得左侧tab
