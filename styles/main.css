@@ -128,6 +128,7 @@ body {
   margin: 0 auto;
   background-image: url("../images/background.png");
   background-repeat: no-repeat;
+  background-size: 100% auto;
   padding-top: 25px;
 }
 .myHead{
@@ -139,7 +140,7 @@ body {
   opacity: 0.5;
 }
 .ybfzzx{
-  margin-left: 13.3%;
+  margin-left: 18%;
 }
 .myBtn-head{
   border-radius: 20px;
